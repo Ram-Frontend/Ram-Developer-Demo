@@ -1,0 +1,135 @@
+$testimonials: ".testimonials";
+
+#{$testimonials} {
+  &-section {
+    position: relative;
+    padding: 0 0 rem(145px) 0;
+    @include respond-below("lg") {
+      padding: 0 0 rem(70px) 0;
+    }
+    @include mobile() {
+      padding: 0 0 rem(40px) 0;
+    }
+    .slick-dots {
+      margin-top: rem(25px);
+      margin-bottom: 0;
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: rem(56px);
+      h2 {
+        color: $secondary-100;
+      }
+      h5 {
+        font-size: rem(20px);
+        font-weight: 400;
+        text-transform: uppercase;
+        color: $secondary-100;
+        letter-spacing: rem(4px);
+      }
+    }
+
+    #{$testimonials} {
+      &-quote {
+        display: block;
+        width: rem(48px);
+        svg {
+          width: rem(48px);
+        }
+      }
+      &-wrapper {
+        position: relative;
+        margin: 0 auto;
+
+        h3 {
+          color: $primary-100;
+          font-size: rem(18px);
+          text-transform: uppercase;
+          font-family: $font-family-base;
+          font-weight: 600;
+        }
+      }
+
+      &-slider {
+      }
+
+      &-item {
+        padding: rem(15px);
+        &-title {
+          display: flex;
+          justify-content: space-between;
+        }
+        &-inner {
+          border-top: 1px solid $gray;
+          padding: rem(30px) rem(50px) rem(44px);
+          background-color: $gray-100;
+          @include mobile() {
+            padding: rem(20px) rem(30px);
+          }
+          h4 {
+            color: $secondary-100;
+            font-size: rem(18px);
+            font-family: $font-family-base;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin-bottom: 30px;
+          }
+          p {
+            font-size: rem(18px);
+            padding-top: rem(30px);
+            border-top: rem(1px) solid $gray;
+            @include mobile() {
+              font-size: $font-size-base;
+            }
+          }
+        }
+      }
+
+      @include respond-above(lg) {
+        &-item {
+          &-inner {
+          }
+
+          &-image {
+            width: rem(200px);
+            margin-bottom: 0;
+
+            picture {
+              padding-bottom: 120%;
+            }
+          }
+
+          &-quote {
+            width: calc(100% - #{rem(220px)});
+          }
+        }
+      }
+
+      @include respond-below(lg) {
+        .slick-arrow {
+          top: 10vw;
+        }
+      }
+    }
+
+    @include respond-below(lg) {
+      .slick-arrow {
+        top: 22vw;
+        color: $white;
+        background-color: transparent;
+        border-color: $white;
+        &:before {
+          font-size: 16px;
+        }
+
+        &.slick-prev {
+          left: rem(40px);
+        }
+
+        &.slick-next {
+          right: rem(40px);
+        }
+      }
+    }
+  }
+}

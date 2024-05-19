@@ -1,0 +1,218 @@
+/*--- header ---*/
+.main-header {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: $white;
+  z-index: 999;
+
+  .brand {
+    display: inline-flex;
+    vertical-align: middle;
+    width: rem(303px);
+    padding: rem(20px) 0;
+    @include respond-between("md", "lg") {
+      margin: 0 auto;
+    }
+    @include respond-below(md) {
+      width: rem(100px);
+    }
+  }
+
+  .header-top {
+    padding: rem(10px);
+    border-bottom: rem(1px) solid $gray-100;
+    .header-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      @include respond-below(md) {
+        justify-content: space-between;
+      }
+      p {
+        position: relative;
+        padding-left: rem(30px);
+        margin: 0;
+        line-height: 1;
+
+        svg {
+          fill: $secondary-100;
+          width: rem(16px);
+          height: rem(16px);
+          position: absolute;
+          top: rem(4px);
+          left: 0;
+        }
+        a {
+          color: $black;
+          text-decoration: none;
+          font-size: rem(20px);
+          font-weight: 600;
+          &:hover {
+            color: $primary-100;
+          }
+        }
+      }
+      .email-action {
+        display: block;
+        position: relative;
+        margin-left: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        border: 2px solid #b4b5d3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+          fill: $secondary-100;
+          width: rem(16px);
+          height: rem(16px);
+        }
+        &:hover {
+          svg {
+            fill: $primary-100;
+          }
+        }
+      }
+    }
+  }
+
+  .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header-fusion {
+      width: rem(450px);
+      max-width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include respond-below(lg) {
+        display: none;
+      }
+      .header-fusion-logo {
+        margin-right: rem(20px);
+        picture {
+          width: rem(80px);
+        }
+      }
+      h4 {
+        font-size: rem(18px);
+        margin: 0;
+      }
+    }
+  }
+
+  /* nav */
+  .header-navigation {
+    background: $primary-100;
+    @include mobile() {
+      display: none;
+    }
+    ul.menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+      > li {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        list-style: none;
+        &:not(:last-child) {
+          margin-right: rem(15px);
+        }
+
+        > a {
+          position: relative;
+          display: block;
+          padding: rem(20.9px) 0;
+          color: $white;
+          font-size: rem(18px);
+          font-weight: 600;
+          line-height: 1;
+          text-transform: capitalize;
+          text-decoration: none;
+          @include respond-below("xl") {
+            font-size: rem(14px);
+          }
+          @include respond-below("lg") {
+            font-size: rem(10px);
+          }
+        }
+
+        > ul.sub-menu {
+          position: absolute;
+          top: calc(100% + 20px);
+          left: 0;
+          width: auto;
+          margin: 0;
+          display: block;
+          min-width: rem(150px);
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.4s all;
+          pointer-events: none;
+
+          > li {
+            a {
+              display: block;
+              padding: rem(10px);
+              color: $white;
+              font-weight: 400;
+              font-size: rem(14px);
+              white-space: nowrap;
+
+              &::after {
+                display: none;
+              }
+            }
+          }
+        }
+
+        &:hover {
+          > ul.sub-menu {
+            top: 100%;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+          }
+        }
+
+        &.current-menu-item,
+        &.current-menu-parent,
+        &.current_page_ancestor,
+        &:hover {
+          > a {
+            color: $secondary-100;
+
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+
+        &:nth-last-child(1),
+        &:nth-last-child(2) {
+          ul.sub-menu {
+            right: 0;
+            left: auto;
+
+            > li {
+              &:hover {
+                > ul {
+                  right: 100%;
+                  left: auto !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

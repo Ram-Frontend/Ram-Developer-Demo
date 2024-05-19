@@ -1,0 +1,112 @@
+$service: ".service";
+
+#{$service} {
+  &-section {
+    position: relative;
+    padding: rem(100px) 0 rem(150px);
+    @include respond-below("lg") {
+      padding: rem(70px) 0;
+    }
+    @include mobile() {
+      padding: rem(50px) 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: rem(56px);
+      @include mobile() {
+        margin-bottom: rem(30px);
+      }
+      h2 {
+        color: $secondary-100;
+      }
+      h5 {
+        font-size: rem(20px);
+        font-weight: 400;
+        text-transform: uppercase;
+        color: $secondary-100;
+        letter-spacing: rem(4px);
+      }
+    }
+
+    #{$service} {
+      &-listing {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      &-item {
+        width: 33.33%;
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: 1fr;
+        @include respond-below("lg") {
+          width: 50%;
+          padding: 10px;
+        }
+        @include mobile() {
+          width: 100%;
+          padding: 20px;
+          text-align: center;
+        }
+        @include respond-above("lg") {
+          &:nth-child(2) {
+            .service-body {
+              order: -1;
+              &:after {
+                top: inherit;
+                bottom: rem(-20px);
+                transform: rotate(180deg);
+              }
+            }
+          }
+        }
+      }
+      &-media {
+        width: 100%;
+        &-ratio {
+          padding-top: 63.125%;
+        }
+      }
+      &-body {
+        width: 100%;
+        padding: rem(50px);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $secondary-100;
+        &:after {
+          content: " ";
+          position: absolute;
+          top: rem(-19px);
+          border-top: none;
+          border-right: rem(20px) solid transparent;
+          border-left: rem(20px) solid transparent;
+          border-bottom: rem(20px) solid $secondary-100;
+          z-index: 1;
+        }
+        h3 {
+          color: $white;
+          font-size: rem(42px);
+          font-weight: 600;
+          margin-bottom: rem(50px);
+          @include respond-below("xl") {
+            font-size: rem(25px);
+          }
+          @include respond-below("md") {
+            font-size: rem(20px);
+          }
+        }
+        .btn {
+          &:hover {
+            background-color: $white;
+            color: $secondary-100;
+          }
+        }
+      }
+    }
+  }
+}

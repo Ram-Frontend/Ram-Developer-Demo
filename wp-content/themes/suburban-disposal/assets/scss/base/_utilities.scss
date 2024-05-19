@@ -1,0 +1,26 @@
+/**
+ * Main content containers
+ */
+%container {
+    --gutter: #{$gutters};
+    // max-width: calc(var(--container-width, none) + var(--gutter) * 2);
+    // width: min(100%, calc(var(--container-width, none) + var(--gutter) * 2));
+    width: min(calc(100% - var(--gutter) * 2), calc(var(--container-width, none)));
+    margin-left: auto;
+    margin-right: auto;
+    // padding-left: var(--gutter);
+    // padding-right: var(--gutter);
+
+    @include respond-below(md) {
+        --gutter: #{rem(20px)};
+    }
+}
+
+.container {
+    --container-width: #{$container-width};
+    @extend %container;
+
+    &-fluid {
+        @extend %container;
+    }
+}
