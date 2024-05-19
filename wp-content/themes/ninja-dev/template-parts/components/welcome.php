@@ -9,6 +9,7 @@ if ( $welcome_page ) {
 	$welcome_page_title = $welcome_page['title'];
 	$welcome_page_target = $welcome_page['target'] ? $welcome_page['target'] : '_self';
 }
+// Welcome component start bhere
 if ( $welcome_image && $welcome_content  ) :
 echo '<section class="welcome-section">'.
 	'<div class="container">'.

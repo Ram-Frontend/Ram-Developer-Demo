@@ -24,7 +24,6 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <!-- start -->
-<!-- start -->
 <div class="wrapper">
 		<div class="main-container">
 				<!-- Device menu -->
